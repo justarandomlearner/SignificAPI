@@ -15,6 +15,14 @@ type Service struct {
 	rword.Repository
 }
 
+func NewService() Service {
+	return Service{
+		Repository: rword.Repository{
+			// Conn: conn,
+		},
+	}
+}
+
 func (s Service) FindWord(ctx context.Context, word string) (*mword.Payload, error) {
 	r, err := http.Get("https://api.dicionario-aberto.net/word/" + word)
 	if err != nil {
@@ -35,20 +43,21 @@ func (s Service) FindWord(ctx context.Context, word string) (*mword.Payload, err
 
 	payload := &mword.Payload{Word: word}
 
-	var meaning mword.Meaning
-
 	payload.Meanings = make([]mword.Meaning, 0)
 
 	for _, result := range results {
-		var entry mword.Entry
-		if err := xml.Unmarshal([]byte(result.XML), &entry); err != nil {
+		var e mword.Entry
+
+		if err := xml.Unmarshal([]byte(result.XML), &e); err != nil {
 			return nil, err
 		}
 
-		for _, sense := range entry.Senses {
-			meaning.SenseToMeaning(sense)
+		for _, sense := range e.Senses {
+			var m mword.Meaning
 
-			payload.Meanings = append(payload.Meanings, meaning)
+			m.SenseToMeaning(sense)
+
+			payload.Meanings = append(payload.Meanings, m)
 		}
 	}
 

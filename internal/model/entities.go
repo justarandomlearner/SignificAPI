@@ -29,13 +29,15 @@ type Entry struct {
 	} `xml:"etym"`
 }
 
+type UsageInfo struct {
+	Type string `xml:"type,attr"`
+	Text string `xml:",chardata"`
+}
+
 // represents each sense an entry can have
 type Sense struct {
-	GramGrp string `xml:"gramGrp"`
-	Def     string `xml:"def"`
-	Ast     string `xml:"ast,attr,omitempty"`
-	Usg     struct {
-		Type string `xml:"type,attr"`
-		Text string `xml:",chardata"`
-	} `xml:"usg"`
+	GramGrp string      `xml:"gramGrp"`
+	Def     string      `xml:"def"`
+	Ast     string      `xml:"ast,attr,omitempty"`
+	Usg     []UsageInfo `xml:"usg"`
 }

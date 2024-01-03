@@ -8,22 +8,11 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	rword "github.com/justarandomlearner/SignificAPI/internal/repository"
 	sword "github.com/justarandomlearner/SignificAPI/internal/service"
 )
 
-func SayHello(ctx *gin.Context) {
-	ctx.JSON(200, gin.H{
-		"message": "Hello World",
-	})
-}
-
 func WordHandler(ctx *gin.Context) {
-	service := &sword.Service{
-		Repository: rword.Repository{
-			// Conn: conn,
-		},
-	}
+	service := sword.NewService()
 	word := ctx.Param("word")
 
 	if strings.TrimSpace(word) == "" {
