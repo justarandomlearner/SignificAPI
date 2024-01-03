@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/justarandomlearner/SignificAPI/cmd/api/handlers"
+	"github.com/justarandomlearner/SignificAPI/internal/handlers"
 )
 
 func main() {
