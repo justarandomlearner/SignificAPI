@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"net/http"
 
-	mword "github.com/justarandomlearner/SignificAPI/pkg/model"
-	rword "github.com/justarandomlearner/SignificAPI/pkg/repository"
+	mword "github.com/justarandomlearner/SignificAPI/internal/model"
+	rword "github.com/justarandomlearner/SignificAPI/internal/repository"
 )
 
 type Service struct {

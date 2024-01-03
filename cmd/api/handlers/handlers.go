@@ -8,8 +8,8 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	rword "github.com/justarandomlearner/SignificAPI/pkg/repository"
-	sword "github.com/justarandomlearner/SignificAPI/pkg/service"
+	rword "github.com/justarandomlearner/SignificAPI/internal/repository"
+	sword "github.com/justarandomlearner/SignificAPI/internal/service"
 )
 
 func SayHello(ctx *gin.Context) {
