@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	word := os.Args[1]
+	word := strings.ToLower(os.Args[1])
 
 	service := sword.NewService()
 
@@ -38,7 +38,5 @@ func main() {
 		if usage != "" {
 			fmt.Println(usage)
 		}
-
 	}
-
 }
