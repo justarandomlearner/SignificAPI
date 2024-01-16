@@ -1,30 +1,36 @@
 package database
 
-import (
-	"context"
-	"time"
+/*
 
-	"github.com/jackc/pgx/v4/pgxpool"
-)
+database connection skeleton
 
-var (
-	Conn       *pgxpool.Pool
-	connString string
-)
+*/
 
-func init() {
-	connString = "postgresql://posts:p0stgr3s@localhost:5432/posts"
-}
+// import (
+// 	"context"
+// 	"time"
 
-func NewConnection() (*pgxpool.Pool, error) {
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
+// 	"github.com/jackc/pgx/v4/pgxpool"
+// )
 
-	var err error
-	Conn, err = pgxpool.Connect(ctx, connString)
-	if err != nil {
-		return nil, err
-	}
+// var (
+// 	Conn       *pgxpool.Pool
+// 	connString string
+// )
 
-	return Conn, nil
-}
+// func init() {
+// 	connString = "some connection string"
+// }
+
+// func NewConnection() (*pgxpool.Pool, error) {
+// 	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+// 	defer cancel()
+
+// 	var err error
+// 	Conn, err = pgxpool.Connect(ctx, connString)
+// 	if err != nil {
+// 		return nil, err
+// 	}
+
+// 	return Conn, nil
+// }
